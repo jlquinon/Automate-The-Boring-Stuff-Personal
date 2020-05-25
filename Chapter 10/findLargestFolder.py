@@ -12,7 +12,7 @@ def findLargestDir(start='.'):
     max_size = 0
     largest_folder = ''
 
-    for folder_name, sub_folders, file_names in os.walk(start):
+    for folder_name, sub_folders, file_names in os.walk(Path.home()):
         folder_size = 0
         for file_name in file_names:
             file_path = os.path.join(folder_name, file_name)
@@ -21,9 +21,9 @@ def findLargestDir(start='.'):
 
         if folder_size > max_size:
             max_size = folder_size
-            max_folder = folder_name
+            largest_folder = folder_name
 
-    return max_folder, max_size
+    return largest_folder, max_size
 
 folder, max_size = findLargestDir()
 
